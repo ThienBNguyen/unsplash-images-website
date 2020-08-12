@@ -1,12 +1,9 @@
 import React from 'react';
-
+import './SearchBar.css';
+import ImageCard from './ImageCard';
 export default function ImageItems(props) {
-  const images = props.images.map(({ description, id, urls }) => {
-    return <img key={id} src={urls.regular} alt={description} />;
+  const images = props.images.map((image) => {
+    return <ImageCard key={image.id} image={image} />;
   });
-  return (
-    <div>
-      <h1>{images}</h1>
-    </div>
-  );
+  return <div className="image-list">{images}</div>;
 }
