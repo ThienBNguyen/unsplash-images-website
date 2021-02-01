@@ -12,17 +12,17 @@ class ImageCard extends React.Component {
   componentDidMount() {
     this.imageRef.current.addEventListener('load', this.setSpans);
   }
-  setSpan = () => {
+  setSpans = () => {
     const height = this.imageRef.current.clientHeight;
-    const spans = Math.ceil(height / 150);
-    this.setState({ spans: spans });
+    const spans = Math.ceil(height / 10);
+    this.setState({ spans });
   };
   render() {
     const { description, urls } = this.props.image;
 
     return (
       <div style={{ gridRowEnd: `span ${this.state.spans}` }}>
-        <img alt={description} src={urls.regular} ref={this.imageRef} />
+        <img ref={this.imageRef} alt={description} src={urls.regular} />
       </div>
     );
   }
